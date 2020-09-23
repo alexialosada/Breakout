@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Breakout amb canvas</title>
+<style>
+#principal{
+	width: 960px;
+	margin: 0 auto;
+    display: none;
+}
+#joc{
+	position:relative;
+	margin-top: 20px;
+}
+#game {
+	background-color: #eee;  /* color gris clar  */
+	border: #666 50px solid;
+	border-bottom-width: 0;
+	display: block;
+	margin: 0 auto;
+}
+#marcador{
+  font-size: 20px;
+  font-weight: bold;
+  border-radius:25px;
+  color: black;
+  background-color: #a3a352
+}
+#pantallaInicial{
+  display: block;
+    text-align: center;
+    font-family: "Arial Black";
+    font-size: 2em;
+    color: palevioletred;
+    -webkit-text-fill-color: palevioletred; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: purple;
+}
+  #felicitacio{
+    font-family: "Comic Sans MS", cursive;
+    font-size: 2em;
+    color: #ff0000;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    width: 400px;
+    left:300px;
+    top:200px;
+    opacity: 0.5;
+    background-color: black;
+    border-radius: 30px;
+    padding-top: 50px;
+    visibility: hidden;
+  }
+</style>
+
+
+</head>
+
+<body>
+<audio id="sound">
+    <source id="soundSource" src="sonidos/Menu.mp3" type="audio/mpeg">
+</audio>
+<div id="pantallaInicial">
+  <img id="audioIcon1" src="imatges/audioOff.gif" style=" margin-left: auto; margin-right: -540px; margin-top:34px">
+  <h1>BREAKOUT</h1>
+  <table style="margin: 0 auto">
+    <tr>
+    <h2>Elegeix el nivell i l'usuari</h2>
+    </tr>
+    <tr>
+    <td>
+      Nivell=<input id="nivell" type="number" min="0" max="3" step="1" value="0" style="width: 35px; text-align: right; color: darkslateblue"/>
+    </td>
+    <td>
+      Usuari: <input id="usuari" type="text" value="" style="color: darkslateblue"/><br/>
+    </td>
+    </tr>
+  </table>
+  <input type="button" id="playButton" value="PLAY">
+</div>
+<div id="principal">
+  <div id="joc">
+    <div id = "marcador">
+      <table style="width:75%">
+      <td>
+          <div id="marcaNivells">
+          <table>
+            <tr>
+              <td id="marcadorDeNivell" rowspan="2">Nivell: </td>
+              <td rowspan="2"> </td>
+              <td><input type="image" id="nivellAmunt" src="imatges/amunt.jpg"></td>
+            </tr>
+            <tr>
+              <td><input type="image" id="nivellAbaix" src="imatges/avall.jpg"></td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div id="contador">
+        <div id="nom"> Nom: </div>
+        <div id="encerts"> Marcador: 0 encerts</div>
+        <div id="vides"> Vides restants: <img src="imatges/corVerd.jpg"><img src="imatges/corVerd.jpg"><img src="imatges/corVerd.jpg"><img src="imatges/corVerd.jpg"></div>
+        </div>
+      </td>
+        <td>
+          <div id="top3">Top3 : <br><br></div>
+        </td>
+      </table>
+    </div>
+    <div id="felicitacio"></div>
+    <canvas id="game"></canvas>
+  </div>
+  <div id="audioButton"><img id="audioIcon" src="imatges/audioOff.gif" style="margin-top:20px"></div>
+</div>
+<script src="scripts/jquery-3.5.1.js"></script>
+<script src="scripts/breakout.js" defer></script>
+<script src="scripts/Game.js"></script>
+<script src="scripts/Paddle.js"></script>
+<script src="scripts/Ball.js"></script>
+<script src="scripts/Totxo.js"></script>
+<script src="scripts/Mur.js"></script>
+
+</body>
+</html>
